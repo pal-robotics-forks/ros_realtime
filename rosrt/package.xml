@@ -1,0 +1,29 @@
+<package>
+  <name>rosrt</name>
+  <version>0.5.3</version>
+  <description>rosrt provides classes for interfacing with ROS from within realtime systems, such as realtime-safe Publisher and Subscriber classes.</description>
+  <author>Josh Faust</author>
+  <maintainer email="kalakris@usc.edu">Mrinal Kalakrishnan</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/rosrt</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>rosatomic</build_depend>
+  <build_depend>allocators</build_depend>
+  <build_depend>lockfree</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>rosunit</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>roslib</run_depend>
+  <run_depend>rosatomic</run_depend>
+  <run_depend>allocators</run_depend>
+  <run_depend>lockfree</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <test_depend>rostest</test_depend>
+
+</package>

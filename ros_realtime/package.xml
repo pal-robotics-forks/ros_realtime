@@ -1,0 +1,23 @@
+<package>
+  <name>ros_realtime</name>
+  <version>0.5.3</version>
+  <description>Contains tools for using ROS from within realtime threads, mainly the rosrt package.</description>
+  <author>Josh Faust</author>
+  <maintainer email="kalakris@usc.edu">Mrinal Kalakrishnan</maintainer>
+
+  <license>BSD</license>
+  <license>Boost</license>
+
+  <url type="website">http://ros.org/wiki/ros_realtime</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rosatomic</run_depend>
+  <run_depend>allocators</run_depend>
+  <run_depend>rosrt</run_depend>
+  <run_depend>lockfree</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

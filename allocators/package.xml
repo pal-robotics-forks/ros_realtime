@@ -1,0 +1,14 @@
+<package>
+  <name>allocators</name>
+  <version>0.5.3</version>
+  <description>Contains aligned allocation functions, as well as an STL-compatible AlignedAllocator class.</description>
+  <author>Josh Faust</author>
+  <maintainer email="kalakris@usc.edu">Mrinal Kalakrishnan</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/allocators</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <test_depend>rosunit</test_depend>
+
+</package>

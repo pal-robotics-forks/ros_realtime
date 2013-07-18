@@ -34,8 +34,8 @@
 # Author: Brian Gerkey
 
 PKG = 'rosrt'
-import roslib; roslib.load_manifest(PKG)
 
+from catkin.find_in_workspaces import find_in_workspaces
 import unittest
 import os
 from subprocess import Popen, PIPE
@@ -45,7 +45,9 @@ class TestPublisherNoInitializeTestCase(unittest.TestCase):
     # Check that test_publisher_no_initialize exits cleanly, as opposed to,
     # for example, seg-faulting, #3569.
     def test_no_initialize(self):
-        cmd = os.path.join(roslib.packages.get_pkg_dir(PKG), 'bin', 'test_publisher_no_initialize')
+        paths = find_in_workspaces(search_dirs=['libexec'], project=PKG, path='test_publisher_no_initialize')
+        self.assertEquals(len(paths), 1)
+        cmd = paths[0]
         p = Popen([cmd], stdout=PIPE, stderr=PIPE)
         p.communicate()
         self.assertEquals(p.returncode, 0)

@@ -1,0 +1,29 @@
+<package>
+  <name>lockfree</name>
+  <version>0.5.3</version>
+  <description>The lockfree package contains lock-free data structures for use in multithreaded programming.  These
+     kinds of data structures are generally not as easy to use as single-threaded equivalents, and are not
+     always faster.  If you don't know you need to use one, try another structure with a lock around it
+     first.</description>
+  <author>Josh Faust</author>
+  <maintainer email="kalakris@usc.edu">Mrinal Kalakrishnan</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/lockfree</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rosatomic</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>allocators</build_depend>
+
+  <run_depend>rosatomic</run_depend>
+  <run_depend>rosconsole</run_depend>
+  <run_depend>roslib</run_depend>
+  <run_depend>allocators</run_depend>
+
+  <test_depend>rosunit</test_depend>
+
+</package>
