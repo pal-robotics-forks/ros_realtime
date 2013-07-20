@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   rosunit
 )
 find_package(Boost REQUIRED COMPONENTS thread)
+find_package(xenomai_ros)
 
 catkin_package(
     DEPENDS Boost
@@ -21,21 +22,9 @@ catkin_package(
 
 include_directories(include ${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
 
-
-# Check for Xenomai:
-set(XENOMAI_SEARCH_PATH /usr/local/xenomai /usr/xenomai /usr)
-find_path(XENOMAI_DIR bin/xeno-config ${XENOMAI_SEARCH_PATH})
-if (XENOMAI_DIR)
-  set (XENOMAI_CONFIG ${XENOMAI_DIR}/bin/xeno-config)
-  message ("Xenomai found in ${XENOMAI_DIR}")
-  execute_process(COMMAND ${XENOMAI_CONFIG} --skin=native --cflags OUTPUT_VARIABLE XENOMAI_CFLAGS OUTPUT_STRIP_TRAILING_WHITESPACE)
-  execute_process(COMMAND ${XENOMAI_CONFIG} --skin=native --ldflags OUTPUT_VARIABLE XENOMAI_LDFLAGS OUTPUT_STRIP_TRAILING_WHITESPACE)
-  set (ROSRT_PLATFORM_CFLAGS ${XENOMAI_CFLAGS})
-  set (ROSRT_PLATFORM_LDFLAGS ${XENOMAI_LDFLAGS})
-endif (XENOMAI_DIR)
-
-#add platform-specific compile flags
-add_definitions(${ROSRT_PLATFORM_CFLAGS})
+if (Xenomai_FOUND)
+  add_xenomai_flags()
+endif()
 
 add_library(${PROJECT_NAME}
   src/init.cpp
@@ -45,13 +34,10 @@ add_library(${PROJECT_NAME}
   src/subscriber.cpp
 )
 
-#add platform-specific linker flags
 target_link_libraries(${PROJECT_NAME}
-  ${ROSRT_PLATFORM_LDFLAGS}
   ${catkin_LIBRARIES}
   ${Boost_LIBRARIES}
 )
-
 
 if (GTEST_FOUND)
   include_directories(${GTEST_INCLUDE_DIRS})
