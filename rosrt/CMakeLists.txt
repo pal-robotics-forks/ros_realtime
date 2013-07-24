@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   rosunit
 )
 find_package(Boost REQUIRED COMPONENTS thread)
-find_package(xenomai_ros)
+find_package(xenomai_ros QUIET)
 
 catkin_package(
     DEPENDS Boost
