@@ -39,6 +39,14 @@ target_link_libraries(${PROJECT_NAME}
   ${Boost_LIBRARIES}
 )
 
+if (Xenomai_FOUND)
+  target_link_libraries(${PROJECT_NAME}
+    ${Xenomai_LIBRARY_NATIVE}
+    ${Xenomai_LIBRARY_XENOMAI}
+    pthread
+  )
+endif()
+
 if (GTEST_FOUND)
   include_directories(${GTEST_INCLUDE_DIRS})
   link_directories(${GTEST_LIBRARY_DIRS})
