@@ -40,11 +40,7 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 if (Xenomai_FOUND)
-  target_link_libraries(${PROJECT_NAME}
-    ${Xenomai_LIBRARY_NATIVE}
-    ${Xenomai_LIBRARY_XENOMAI}
-    pthread
-  )
+  target_link_libraries(${PROJECT_NAME} ${Xenomai_LIBRARIES_NATIVE})
 endif()
 
 if (GTEST_FOUND)
