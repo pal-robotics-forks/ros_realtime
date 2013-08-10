@@ -85,9 +85,9 @@ private:
   PublishQueue queue_;
   rosrt::condition_variable cond_;
   rosrt::mutex cond_mutex_;
-  rosrt::thread pub_thread_;
   ros::atomic<uint32_t> pub_count_;
   volatile bool running_;
+  rosrt::thread pub_thread_;
 };
 
 } // namespace detail
