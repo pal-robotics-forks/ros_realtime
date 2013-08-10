@@ -68,6 +68,7 @@ public:
     int const res = rt_mutex_create(&mutex_, NULL);
     if (res)
     {
+      BOOST_VERIFY(!res);
       throw boost::thread_resource_error();
     }
 #endif
@@ -84,7 +85,10 @@ public:
   {
 #ifdef __XENO__
     int const res = rt_mutex_acquire(&mutex_, TM_INFINITE);
-    BOOST_VERIFY(!res);
+    if (res)
+    {
+      BOOST_VERIFY(!res);
+    }
 #else
     mutex_.lock();
 #endif
