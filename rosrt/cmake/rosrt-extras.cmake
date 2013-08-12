@@ -1,2 +1,4 @@
 # Sorry, anyone who depends on rosrt gets xenomai flags forced upon them if detected
-add_xenomai_flags()
+if (Xenomai_FOUND)
+  add_xenomai_flags()
+endif()

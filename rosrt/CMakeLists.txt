@@ -23,7 +23,9 @@ catkin_package(
 
 include_directories(include ${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
 
-add_xenomai_flags()
+if (Xenomai_FOUND)
+  add_xenomai_flags()
+endif()
 
 add_library(${PROJECT_NAME}
   src/init.cpp
