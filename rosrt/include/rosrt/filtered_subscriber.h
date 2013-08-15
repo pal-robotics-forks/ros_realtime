@@ -210,11 +210,12 @@ private:
     boost::shared_ptr<Filtered> filtered = filtered_pool_->allocateShared();
     if (!filtered)
     {
+      ROS_ERROR("FilteredSubscriber: could not allocate filtered object.");
       return;
     }
     if (!filter_(msg, filtered))
     {
-      ROS_ERROR("FilteredSubscriber: filter function failed.");
+      ROS_DEBUG("FilteredSubscriber: filter function failed.");
       return;
     }
 
