@@ -47,3 +47,7 @@ nosetests.xml
 *.lai
 *.la
 *.a
+
+# Eclipse project files
+.project
+.cproject
