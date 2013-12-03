@@ -9,19 +9,21 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   rostest
   rosunit
-  xenomai_ros
 )
 find_package(Boost REQUIRED COMPONENTS thread)
 
+# optional
+find_package(xenomai_ros QUIET)
+
 catkin_package(
     DEPENDS Boost
-    CATKIN_DEPENDS roscpp roslib rosatomic allocators lockfree std_msgs xenomai_ros
+    CATKIN_DEPENDS roscpp roslib rosatomic allocators lockfree std_msgs
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
     CFG_EXTRAS rosrt-extras.cmake
 )
 
-include_directories(include ${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+include_directories(include ${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${xenomai_ros_INCLUDE_DIRS})
 
 if (Xenomai_FOUND)
   add_xenomai_flags()
