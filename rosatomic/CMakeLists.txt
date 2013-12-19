@@ -11,4 +11,8 @@ catkin_package(
 
 include_directories(include ${Boost_INCLUDE_DIRS})
 
+install(DIRECTORY include/
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
+)
+
 catkin_add_gtest(utest test/utest.cpp)

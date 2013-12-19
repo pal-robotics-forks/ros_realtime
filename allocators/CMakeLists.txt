@@ -11,4 +11,8 @@ catkin_package(
 
 include_directories(include ${Boost_INCLUDE_DIRS})
 
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h")
+
 catkin_add_gtest(test_aligned_alloc test/test_aligned_alloc.cpp)
