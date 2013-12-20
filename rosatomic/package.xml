@@ -12,5 +12,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <build_depend>boost</build_depend>
+
   <test_depend>rosunit</test_depend>
 </package>
