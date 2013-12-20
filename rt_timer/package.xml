@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>rt_timer</name>
-  <version>1.0.0</version>
+  <version>0.5.3</version>
   <description>Provides a C++ timer (header) API with real-time safe code for Xenomai if available.</description>
 
   <maintainer email="kalakris@usc.edu">Mrinal Kalakrishnan</maintainer>
