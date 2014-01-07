@@ -140,13 +140,16 @@ TEST(MallocWrappers, sharedObjectDynamicallyOpened)
 }
 #endif
 
-void doBreakOnMalloc()
-{
-  setThreadBreakOnAllocOrFree(true);
-  void* mem = malloc(500);
-  mem = 0;
-  setThreadBreakOnAllocOrFree(false);
-}
+// @todo the function below is NOT used at all, the call is commented in the next test
+// TODO: Re-enable once ROS 1.1 goes out with the updated version of gtest
+//void doBreakOnMalloc()
+//{
+//  setThreadBreakOnAllocOrFree(true);
+//  void* mem = malloc(500);
+//  // @wtf?! why not free(mem);?!
+//  mem = 0;
+//  setThreadBreakOnAllocOrFree(false);
+//}
 
 TEST(MallocWrappersDeathTest, breakOnAllocFree)
 {
